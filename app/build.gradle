@@ -34,9 +34,10 @@ dependencies {
     // TODO(3) класс отвечающий за запуск тестов находится в пакете runner для android и junit.extentions для androidx
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
-    androidTestCompile 'com.android.support.test.espresso:espresso-intents:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
     androidTestImplementation "com.android.support.test.espresso:espresso-contrib:3.0.2"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
     // TODO(1) в dimention androidTest добавить зависимость автоматора в зависимости от использования androidx
     androidTestImplementation"com.android.support.test.uiautomator:uiautomator-v18:2.1.3"
 }
+

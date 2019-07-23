@@ -42,6 +42,11 @@ class ExampleInstrumentedTest : ConcreteApplicationTest<LoginActivity>(LoginActi
         onView(allOf(withId(R.id.password), isCompletelyDisplayed())).perform(ViewActions.typeText("Konskaya"))
         onView(allOf(withId(R.id.email_sign_in_button), isCompletelyDisplayed())).perform(click())
     }
+
+    @Test
+    fun fillFieldEmail(){
+        onView(allOf(withId(R.id.email), isCompletelyDisplayed())).perform(ViewActions.typeText("Email Zalupi"))
+    }
 }
 
 
