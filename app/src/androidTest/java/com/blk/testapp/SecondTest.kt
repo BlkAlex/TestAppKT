@@ -4,10 +4,14 @@ import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso
 import android.support.test.espresso.Espresso.*
 import android.support.test.espresso.action.ViewActions
+import android.support.test.espresso.action.ViewActions.typeText
 import android.support.test.espresso.matcher.ViewMatchers
+import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
+import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.runner.AndroidJUnit4
 import com.blk.testapp.base.ConcreteApplicationTest
 import org.hamcrest.Matchers
+import org.hamcrest.Matchers.allOf
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -35,14 +39,13 @@ class SecondTest : ConcreteApplicationTest<LoginActivity>(LoginActivity::class.j
 
     @Test
     fun fillFields(){
-        onView(Matchers.allOf(ViewMatchers.withId(R.id.email), ViewMatchers.isCompletelyDisplayed()))
-            .perform(ViewActions.typeText("Second Zalupa"))
-        onView(Matchers.allOf(ViewMatchers.withId(R.id.password), ViewMatchers.isCompletelyDisplayed()))
-            .perform(ViewActions.typeText("Snova Konskaya"))
-        onView(
-            Matchers.allOf(
-                ViewMatchers.withId(R.id.email_sign_in_button),
-                ViewMatchers.isCompletelyDisplayed()
+        onView(allOf(withId(R.id.email), isDisplayed()))
+            .perform(typeText("Second Zalupa"))
+        onView(allOf(withId(R.id.password), isDisplayed()))
+            .perform(typeText("Snova Konskaya"))
+        onView(allOf(
+                withId(R.id.email_sign_in_button),
+                isDisplayed()
             )
         ).perform(ViewActions.click())
 
@@ -51,8 +54,8 @@ class SecondTest : ConcreteApplicationTest<LoginActivity>(LoginActivity::class.j
 
     @Test
     fun ololo() {
-        Espresso.onView(Matchers.allOf(ViewMatchers.withId(R.id.password), ViewMatchers.isCompletelyDisplayed()))
-            .perform(ViewActions.typeText("OLOLO"))
+        Espresso.onView(allOf(withId(R.id.password), isDisplayed()))
+            .perform(typeText("OLOLO"))
     }
 
 }
